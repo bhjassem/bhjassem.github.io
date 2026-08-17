@@ -71,6 +71,7 @@
   nav.links{display:flex;gap:26px;font-family:var(--mono);font-size:13px;color:var(--text-muted)}
   nav.links a:hover{color:var(--green)}
   @media (max-width:720px){nav.links{display:none}}
+  @media (max-width:480px){.brand{font-size:13px}}
   .lang-toggle{
     display:flex;align-items:center;gap:0;
     font-family:var(--mono);font-size:12px;font-weight:700;
@@ -94,6 +95,14 @@
   }
   .chip.on{border-color:var(--green-dim);color:var(--green)}
   .cta-row{display:flex;gap:14px;flex-wrap:wrap}
+  .trust-row{display:flex;flex-direction:column;gap:8px;margin-top:22px}
+  .trust-item{display:flex;align-items:center;gap:9px;font-family:var(--mono);font-size:12.5px;color:var(--text-muted)}
+  .trust-item .tick{color:var(--green);font-weight:700}
+  .client-avatar{
+    display:inline-flex;align-items:center;justify-content:center;
+    width:22px;height:22px;border-radius:6px;font-family:var(--mono);font-size:9.5px;font-weight:800;
+    color:#04140b;margin-right:8px;vertical-align:middle;
+  }
   .btn{
     font-family:var(--mono);font-size:13.5px;font-weight:600;padding:13px 22px;border-radius:8px;
     display:inline-flex;align-items:center;gap:8px;border:1px solid transparent;transition:.2s;
@@ -167,6 +176,13 @@
   .commit p.desc{color:var(--text-muted);font-size:14.5px;max-width:70ch;margin:8px 0 12px}
   .commit .stack{display:flex;flex-wrap:wrap;gap:6px}
   .commit .stack span{font-family:var(--mono);font-size:11px;color:var(--text-faint);border:1px solid var(--border);padding:3px 8px;border-radius:5px}
+  .commit .applinks{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+  .commit .applinks a{
+    font-family:var(--mono);font-size:11.5px;color:var(--green);border:1px solid var(--green-dim);
+    padding:4px 10px;border-radius:999px;display:inline-flex;align-items:center;gap:5px;transition:.15s;
+  }
+  .commit .applinks a:hover{background:var(--green);color:#04140b}
+  .commit .applinks a::before{content:"▸";font-size:10px}
 
   /* ---------- education ---------- */
   .edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
@@ -209,10 +225,10 @@
 
 <header>
   <div class="wrap">
-    <div class="brand"><span class="dot"></span> jassem<span style="color:var(--text-faint)">.</span>dev</div>
+    <div class="brand"><span class="dot"></span> Jassem Ben Hamida</div>
     <nav class="links">
+      <a href="#experience" data-fr>Missions</a><a href="#experience" data-en>Experience</a>
       <a href="#skills" data-fr>Compétences</a><a href="#skills" data-en>Skills</a>
-      <a href="#experience" data-fr>Expérience</a><a href="#experience" data-en>Experience</a>
       <a href="#education" data-fr>Formation</a><a href="#education" data-en>Education</a>
       <a href="#contact" data-fr>Contact</a><a href="#contact" data-en>Contact</a>
     </nav>
@@ -225,7 +241,7 @@
 <section class="hero">
   <div class="wrap hero-grid">
     <div>
-      <div class="eyebrow"><span data-fr>package com.jassem.dev</span><span data-en>package com.jassem.dev</span></div>
+      <div class="eyebrow"><span data-fr>Jassem Ben Hamida</span><span data-en>Jassem Ben Hamida</span></div>
       <h1>
         <span data-fr>Développeur <span class="hl">Android</span> &amp; <span class="hl">Kotlin Multiplatform</span></span>
         <span data-en>Building <span class="hl">Android</span> &amp; <span class="hl">Kotlin Multiplatform</span> apps</span>
@@ -246,6 +262,11 @@
         <a class="btn btn-ghost" href="CV_Jassem_BEN_HAMIDA.pdf" target="_blank"><span data-fr>Voir le CV</span><span data-en>View résumé</span></a>
         <a class="btn btn-ghost" href="https://github.com/bhjassem" target="_blank">GitHub ↗</a>
       </div>
+      <div class="trust-row">
+        <div class="trust-item"><span class="tick">✓</span><span data-fr>10 ans d'expérience</span><span data-en>10 years of experience</span></div>
+        <div class="trust-item"><span class="tick">✓</span><span data-fr>Clients grands comptes</span><span data-en>Enterprise clients</span></div>
+        <div class="trust-item"><span class="tick">✓</span><span data-fr>Kotlin &amp; Compose — stack officielle recommandée par Google</span><span data-en>Kotlin &amp; Compose — Google's official recommended stack</span></div>
+      </div>
     </div>
 
     <div class="terminal">
@@ -255,6 +276,19 @@
   </div>
 </section>
 
+
+
+<section id="experience">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 data-fr>Missions</h2><h2 data-en>Experience</h2>
+      <div class="file" data-fr>git log --author=jassem --oneline</div>
+      <div class="file" data-en>git log --author=jassem --oneline</div>
+    </div>
+
+    <div class="gitlog" id="gitlog"></div>
+  </div>
+</section>
 <section id="skills">
   <div class="wrap">
     <div class="sec-head">
@@ -309,19 +343,6 @@
     </div>
   </div>
 </section>
-
-<section id="experience">
-  <div class="wrap">
-    <div class="sec-head">
-      <h2 data-fr>Missions</h2><h2 data-en>Experience</h2>
-      <div class="file" data-fr>git log --author=jassem --oneline</div>
-      <div class="file" data-en>git log --author=jassem --oneline</div>
-    </div>
-
-    <div class="gitlog" id="gitlog"></div>
-  </div>
-</section>
-
 <section id="education">
   <div class="wrap">
     <div class="sec-head">
@@ -447,43 +468,60 @@ renderLog();
 // ---------------- experience data ----------------
 const experiences = [
   {
-    hash:'a1c9e2f', client:'BPCE', role:{fr:'Développeur Android freelance — équipe Cocooning', en:'Freelance Android Developer — Cocooning team'},
+    hash:'a1c9e2f', client:'BPCE', avatar:'BP', color:'var(--green)',
+    role:{fr:'Développeur Android freelance — squad Cocooning', en:'Freelance Android Developer — Cocooning squad'},
     period:'10/2022 — auj.',
     desc:{
-      fr:"Groupe bancaire (Banque Populaire, Caisse d'Épargne). Développement de fonctionnalités clés : offres (parrainage, retraite), assistant conversationnel (chatbot IA interne), application Jeunes (thèmes, vidéos pédagogiques), gestion des mandats et prélèvements. Planification JIRA de l'équipe dev, mise en place de standards de code et de tests unitaires.",
-      en:"Banking group (Banque Populaire, Caisse d'Épargne). Built key features: offers (referral, retirement), an internal AI assistant/chatbot, a youth-focused app (themes, educational videos), and mandate/direct-debit management. Owned JIRA task planning for the dev team and rolled out coding standards and unit testing."
+      fr:"Groupe bancaire (Banque Populaire, Caisse d'Épargne). Squad mobile de 6 développeurs (3 Android, 3 iOS) organisée en POD, méthodologie Scrum. Mentorat d'un développeur Android junior. Fonctionnalités livrées : Promo (parrainage), Offres (retraite, etc.), Assistance (chatbot IA interne), application Jeunes, gestion des deeplinks. Planification JIRA de l'équipe, mise en place de standards de code et de tests unitaires.",
+      en:"Banking group (Banque Populaire, Caisse d'Épargne). 6-developer mobile squad (3 Android, 3 iOS) organized as a POD, Scrum methodology. Mentored a junior Android developer. Shipped features: Promo (referral), Offers (retirement, etc.), Assistance (internal AI chatbot), the Youth app, and deeplink handling. Owned JIRA task planning for the team and rolled out coding standards and unit testing."
     },
-    stack:['Kotlin','Compose','Koin','MVI/MVP','Retrofit','Coroutines','Jenkins']
+    stack:['Kotlin','Compose','Koin','MVI/MVP','Retrofit','Coroutines','Jenkins'],
+    links:[
+      {label:'Banque Populaire', url:'https://play.google.com/store/apps/details?id=fr.banquepopulaire.cyberplus'},
+      {label:'Banque Populaire Pro', url:'https://play.google.com/store/apps/details?id=fr.banquepopulaire.cyberplus.pro'},
+      {label:'Caisse d\u2019Épargne', url:'https://play.google.com/store/apps/details?id=com.caisseepargne.android.mobilebanking'},
+      {label:'BPCE / CE-net', url:'https://play.google.com/store/apps/details?id=fr.bpce.cenet.ce'},
+      {label:'Banque Palatine', url:'https://play.google.com/store/apps/details?id=com.palatine.android.mobilebanking.prod'}
+    ]
   },
   {
-    hash:'7f3b108', client:'Stellantis', role:{fr:'Développeur Android — équipe SDK2', en:'Android Developer — SDK2 team'},
+    hash:'7f3b108', client:'Stellantis', avatar:'ST', color:'var(--purple)', role:{fr:'Développeur Android — équipe SDK2', en:'Android Developer — SDK2 team'},
     period:'2022',
     desc:{
       fr:"Contribution à une white-app de test pour la plateforme PIMS Core, socle commun des applications des marques du groupe Stellantis. Objectif : garantir stabilité, scalabilité et conformité des fonctionnalités partagées entre marques automobiles.",
       en:"Contributed to a white-label test app for the PIMS Core platform, the shared foundation behind Stellantis' brand-specific apps. Focus on stability, scalability and compliance of functionality shared across multiple automotive brands."
     },
-    stack:['Kotlin','MVVM','Navigation','Flow','Room','Retrofit']
+    stack:['Kotlin','MVVM','Navigation','Flow','Room','Retrofit'],
+    links:[
+      {label:'MyPeugeot', url:'https://play.google.com/store/apps/details?id=com.psa.mym.mypeugeot'},
+      {label:'MyCitroën', url:'https://play.google.com/store/apps/details?id=com.psa.mym.mycitroen'},
+      {label:'MyConnect Fiat', url:'https://play.google.com/store/apps/details?id=com.fca.myconnect.fiat'},
+      {label:'Maserati Connect', url:'https://play.google.com/store/apps/details?id=com.fca.myconnect.maseraticonnect'}
+    ]
   },
   {
-    hash:'5e0a441', client:'Bouygues Telecom — BTV', role:{fr:'Développeur Android — équipe de 5', en:'Android Developer — team of 5'},
+    hash:'5e0a441', client:'Bouygues Telecom — B.tv', avatar:'BT', color:'#6ea8fe',
+    role:{fr:'Développeur Android — équipe de 5 (app mobile)', en:'Android Developer — team of 5 (mobile app)'},
     period:'2019 — 2020',
     desc:{
-      fr:"Application multimédia complète (mobile + tablette) : TV en direct, replay, enregistrement de programmes, radios et podcasts. Analyse technique, développement, mise en place des standards de code.",
-      en:"Full multimedia app (phone + tablet): live TV, replay, program recording, radio stations and podcasts. Technical analysis, feature development, coding standards."
+      fr:"Application mobile B.tv (smartphone/tablette — à distinguer du décodeur TV) : plus de 70 chaînes en direct, replay, radios et podcasts. Contribution au module de statistiques d'usage, aux fonctionnalités chaînes/zapping et à la gestion des enregistrements à distance, implémentation du mode Picture-in-Picture, corrections de bugs.",
+      en:"B.tv mobile app (phone/tablet — distinct from the TV set-top box): 70+ live channels, replay, radio stations and podcasts. Contributed to the usage-stats module, channel/zapping features and remote recording management, implemented Picture-in-Picture mode, and handled bug fixes."
     },
-    stack:['Kotlin','Clean Architecture','MVVM','ExoPlayer','Google IMA SDK','Flow']
+    stack:['Kotlin','Clean Architecture','MVVM','ExoPlayer','Google IMA SDK','Flow','Picture-in-Picture'],
+    links:[{label:'b.tv', url:'https://play.google.com/store/apps/details?id=fr.bouyguestelecom.tv.android'}]
   },
   {
-    hash:'2d98c7a', client:'OCS — Orange', role:{fr:'Développeur Android — équipe OPTV', en:'Android Developer — OPTV team'},
+    hash:'2d98c7a', client:'OCS — Orange', avatar:'OC', color:'#ffb86b', role:{fr:'Développeur Android — équipe OPTV', en:'Android Developer — OPTV team'},
     period:'05/2020 — 08/2022',
     desc:{
       fr:"Application de streaming OCS (films, séries, documentaires) multi-plateforme. Intégration de l'authentification pour plusieurs opérateurs télécom (Bouygues, Swisscom, Free) et développement de l'app « OCS Youth » pour le jeune public.",
       en:"OCS streaming app (movies, series, documentaries), cross-platform. Implemented authentication for multiple telecom operators (Bouygues, Swisscom, Free) and built the 'OCS Youth' app for younger audiences."
     },
-    stack:['Kotlin','Clean Architecture','MVVM','Navigation','Room','Agile Scrum']
+    stack:['Kotlin','Clean Architecture','MVVM','Navigation','Room','Agile Scrum'],
+    note:{fr:"App retirée du Play Store suite à la revente d'OCS à Canal+ (janvier 2024) — fusionné en Ciné+ OCS.", en:"Removed from the Play Store after OCS was sold to Canal+ (January 2024) — merged into Ciné+ OCS."}
   },
   {
-    hash:'9b21ee0', client:'La Poste', role:{fr:'Développeur Android — équipe de 6', en:'Android Developer — team of 6'},
+    hash:'9b21ee0', client:'La Poste', avatar:'LP', color:'#4fd8c4', role:{fr:'Développeur Android — équipe de 6', en:'Android Developer — team of 6'},
     period:'07/2020 — 02/2022',
     desc:{
       fr:"Trois applications Android pour les agents postaux : badge numérique (remplaçant les cartes NFC), chargeur d'habilitations pour transférer les droits d'accès de façon sécurisée, et outil de vérification de compatibilité matérielle.",
@@ -492,16 +530,21 @@ const experiences = [
     stack:['Kotlin','MVVM','NFC','Room','Retrofit','JIRA/Redmine']
   },
   {
-    hash:'c440f19', client:'bitbase group', role:{fr:'Développeur Android — équipe de 4 (ERP Kameon)', en:'Android Developer — team of 4 (Kameon ERP)'},
+    hash:'c440f19', client:'bitbase group', avatar:'BG', color:'#ff6b9d', role:{fr:'Développeur Android — équipe de 4 (ERP Kameon)', en:'Android Developer — team of 4 (Kameon ERP)'},
     period:'07/2017 — 11/2019',
     desc:{
       fr:"Éditeur logiciel allemand. Version mobile de l'ERP « Kameon » : gestion du temps de travail, reporting graphique (Telerik), synchronisation de contacts, automatisation d'expériences en usine, lecteur de cartes de visite par OCR (Google Mobile Vision). En parallèle, projets clients : SG Stern (Mercedes — clubs sportifs), Medcon Team (SOS-Call — gestion des urgences médicales).",
       en:"German software publisher. Mobile version of the 'Kameon' ERP: work-time tracking, chart-based reporting (Telerik), contact sync, factory experiment automation, and an OCR business-card reader (Google Mobile Vision). Also delivered client projects: SG Stern (Mercedes — sports clubs) and Medcon Team (SOS-Call — emergency response)."
     },
-    stack:['Java','MVVM','SQLite','Google Mobile Vision','Picasso','Espresso']
+    stack:['Java','MVVM','SQLite','Google Mobile Vision','Picasso','Espresso'],
+    links:[
+      {label:'SOS Call (Medcon)', url:'https://play.google.com/store/apps/details?id=com.bitbase.soscall'},
+      {label:'SG Stern', url:'https://www.sgstern.de/de/'},
+      {label:'kameon (site actuel)', url:'https://www.kameon.de'}
+    ]
   },
   {
-    hash:'0a77c56', client:'Synchronecs', role:{fr:'Développeur — projet Unisas', en:'Developer — Unisas project'},
+    hash:'0a77c56', client:'Synchronecs', avatar:'SY', color:'var(--green)', role:{fr:'Développeur — projet Unisas', en:'Developer — Unisas project'},
     period:'06/2016 — 03/2017',
     desc:{
       fr:"Module de pilotage d'une caméra intelligente : reconnaissance faciale, streaming vidéo en direct, contrôle d'orientation à distance — base d'un système de vidéosurveillance interactive.",
@@ -510,16 +553,17 @@ const experiences = [
     stack:['Java','WebSocket','PHP','JavaScript']
   },
   {
-    hash:'44be2d1', client:'AvMap (Tuntech)', role:{fr:'Développeur — projet Engibox', en:'Developer — Engibox project'},
+    hash:'44be2d1', client:'AvMap (Tuntech)', avatar:'AV', color:'var(--purple)', role:{fr:'Développeur — projet Engibox', en:'Developer — Engibox project'},
     period:'10/2015 — 06/2016',
     desc:{
       fr:"Système embarqué aéronautique collectant les données moteur (RPM, niveau et température d'huile, GPS). L'app mobile récupère un fichier binaire depuis le boîtier Engibox et l'envoie à un serveur, la plateforme web le décompresse en graphiques exploitables.",
       en:"Embedded aviation system collecting engine data (RPM, oil level/temperature, GPS). The mobile app pulls a binary file from the Engibox device and uploads it to a server; the web platform decompresses it into readable charts."
     },
-    stack:['Java','Bluetooth Low Energy','Redmine','SVN']
+    stack:['Java','Bluetooth Low Energy','Redmine','SVN'],
+    links:[{label:'Portail EngiBOX', url:'https://engibox.avmap.it/'}]
   },
   {
-    hash:'11f6a80', client:'Permicible (Zetacos)', role:{fr:"Développeur — auto-école", en:'Developer — driving school'},
+    hash:'11f6a80', client:'Permicible (Zetacos)', avatar:'PC', color:'#ffb86b', role:{fr:"Développeur — auto-école", en:'Developer — driving school'},
     period:'02/2015 — 09/2015',
     desc:{
       fr:"Application Android pour digitaliser les process internes d'une auto-école : gestion des élèves, planification, paiements.",
@@ -536,6 +580,7 @@ experiences.forEach(x => {
   el.innerHTML = `
     <div class="row">
       <span class="hash">${x.hash}</span>
+      <span class="client-avatar" style="background:${x.color}">${x.avatar}</span>
       <span class="client">${x.client}</span>
       <span class="period">${x.period}</span>
     </div>
@@ -544,6 +589,8 @@ experiences.forEach(x => {
     <p class="desc" data-fr>${x.desc.fr}</p>
     <p class="desc" data-en style="display:none">${x.desc.en}</p>
     <div class="stack">${x.stack.map(s => `<span>${s}</span>`).join('')}</div>
+    ${x.links ? `<div class="applinks">${x.links.map(l => `<a href="${l.url}" target="_blank" rel="noopener">${l.label}</a>`).join('')}</div>` : ''}
+    ${x.note ? `<p class="desc" data-fr style="font-size:12.5px;color:var(--text-faint);margin-top:10px">${x.note.fr}</p><p class="desc" data-en style="display:none;font-size:12.5px;color:var(--text-faint);margin-top:10px">${x.note.en}</p>` : ''}
   `;
   gitlog.appendChild(el);
 });
