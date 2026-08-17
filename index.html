@@ -258,7 +258,7 @@
         <div class="chip" data-en>Full remote</div>
       </div>
       <div class="cta-row">
-        <a class="btn btn-primary" href="mailto:jassembh@outlook.fr"><span data-fr>Me contacter</span><span data-en>Get in touch</span></a>
+        <a class="btn btn-primary" href="mailto:jassembh@outlook.fr" id="ctaEmail"><span data-fr>Me contacter</span><span data-en>Get in touch</span></a>
         <a class="btn btn-ghost" href="CV_Jassem_BEN_HAMIDA.pdf" target="_blank"><span data-fr>Voir le CV</span><span data-en>View résumé</span></a>
         <a class="btn btn-ghost" href="https://github.com/bhjassem" target="_blank">GitHub ↗</a>
       </div>
@@ -391,7 +391,7 @@
         <p data-en>Available full remote · contract or permanent</p>
       </div>
       <div class="sheet-grid">
-        <a class="sheet-app" href="mailto:jassembh@outlook.fr">
+        <a class="sheet-app" href="mailto:jassembh@outlook.fr" id="sheetEmail">
           <div class="ic" style="background:var(--green)">@</div>
           <span>Email</span>
         </a>
@@ -472,10 +472,10 @@ const experiences = [
     role:{fr:'Développeur Android freelance — squad Cocooning', en:'Freelance Android Developer — Cocooning squad'},
     period:'07/2024 — auj.',
     desc:{
-      fr:"Groupe bancaire (Banque Populaire, Caisse d'Épargne). Squad mobile de 6 développeurs (3 Android, 3 iOS) organisée en POD, méthodologie Scrum. Mentorat d'un développeur Android junior. Fonctionnalités livrées : Promo (parrainage), Offres (retraite, etc.), Assistance (chatbot IA interne), application Jeunes, gestion des deeplinks. Planification JIRA de l'équipe, mise en place de standards de code et de tests unitaires.",
-      en:"Banking group (Banque Populaire, Caisse d'Épargne). 6-developer mobile squad (3 Android, 3 iOS) organized as a POD, Scrum methodology. Mentored a junior Android developer. Shipped features: Promo (referral), Offers (retirement, etc.), Assistance (internal AI chatbot), the Youth app, and deeplink handling. Owned JIRA task planning for the team and rolled out coding standards and unit testing."
+      fr:"Groupe bancaire (Banque Populaire, Caisse d'Épargne). Équipe mobile de 8 : 3 développeurs Android, 3 développeurs iOS, un Product Owner délégué et un Scrum Master. Mentorat d'un développeur Android junior. Fonctionnalités livrées : Promo (parrainage), Offres (retraite, etc.), Assistance (chatbot IA interne), application Jeunes, gestion des deeplinks. Planification JIRA de l'équipe, mise en place de standards de code et de tests unitaires.",
+      en:"Banking group (Banque Populaire, Caisse d'Épargne). 8-person mobile team: 3 Android developers, 3 iOS developers, a delegated Product Owner and a Scrum Master. Mentored a junior Android developer. Shipped features: Promo (referral), Offers (retirement, etc.), Assistance (internal AI chatbot), the Youth app, and deeplink handling. Owned JIRA task planning for the team and rolled out coding standards and unit testing."
     },
-    stack:['Kotlin','Compose','Koin','MVI/MVP','Retrofit','Coroutines','Jenkins'],
+    stack:['Kotlin','Compose','Koin','MVI/MVP','Clean Architecture','Architecture modulaire','Retrofit','Coroutines','Jenkins'],
     links:[
       {label:'Banque Populaire', url:'https://play.google.com/store/apps/details?id=fr.banquepopulaire.cyberplus'},
       {label:'Banque Populaire Pro', url:'https://play.google.com/store/apps/details?id=fr.banquepopulaire.cyberplus.pro'},
@@ -489,8 +489,8 @@ const experiences = [
     role:{fr:'Développeur Android freelance — équipe de 5 (app mobile)', en:'Freelance Android Developer — team of 5 (mobile app)'},
     period:'09/2023 — 03/2024',
     desc:{
-      fr:"Application mobile B.tv (smartphone/tablette — à distinguer du décodeur TV) : plus de 70 chaînes en direct, replay, radios et podcasts. Contribution au module de statistiques d'usage, aux fonctionnalités chaînes/zapping et à la gestion des enregistrements à distance, implémentation du mode Picture-in-Picture, corrections de bugs.",
-      en:"B.tv mobile app (phone/tablet — distinct from the TV set-top box): 70+ live channels, replay, radio stations and podcasts. Contributed to the usage-stats module, channel/zapping features and remote recording management, implemented Picture-in-Picture mode, and handled bug fixes."
+      fr:"Application mobile B.tv (smartphone/tablette — à distinguer du décodeur TV) : plus de 70 chaînes en direct, replay, radios et podcasts. Contribution au module de statistiques d'usage, aux fonctionnalités chaînes/zapping et à la gestion des enregistrements, implémentation du mode Picture-in-Picture, corrections de bugs.",
+      en:"B.tv mobile app (phone/tablet — distinct from the TV set-top box): 70+ live channels, replay, radio stations and podcasts. Contributed to the usage-stats module, channel/zapping features and recording management, implemented Picture-in-Picture mode, and handled bug fixes."
     },
     stack:['Kotlin','Clean Architecture','MVVM','ExoPlayer','Google IMA SDK','Flow','Picture-in-Picture'],
     links:[{label:'b.tv', url:'https://play.google.com/store/apps/details?id=fr.bouyguestelecom.tv.android'}]
@@ -499,10 +499,10 @@ const experiences = [
     hash:'7f3b108', client:'Stellantis', avatar:'ST', color:'var(--purple)', role:{fr:'Développeur Android freelance — équipe SDK2', en:'Freelance Android Developer — SDK2 team'},
     period:'10/2022 — 06/2023',
     desc:{
-      fr:"Contribution à une white-app de test pour la plateforme PIMS Core, socle commun des applications des marques du groupe Stellantis. Objectif : garantir stabilité, scalabilité et conformité des fonctionnalités partagées entre marques automobiles.",
-      en:"Contributed to a white-label test app for the PIMS Core platform, the shared foundation behind Stellantis' brand-specific apps. Focus on stability, scalability and compliance of functionality shared across multiple automotive brands."
+      fr:"Contribution à une white-app de test pour la plateforme PIMS Core, socle commun des applications connectées des marques du groupe Stellantis (Peugeot, Citroën, Fiat, Maserati...) : contrôle à distance du véhicule (démarrage à distance, climatisation, gestion de la charge pour les modèles électriques), envoi d'itinéraire vers le système de navigation du véhicule, et contrôle de la radio. Objectif : garantir stabilité, scalabilité et conformité des fonctionnalités partagées entre marques automobiles.",
+      en:"Contributed to a white-label test app for the PIMS Core platform, the shared foundation behind Stellantis' connected-car apps (Peugeot, Citroën, Fiat, Maserati...): remote vehicle control (remote start, climate control, charge management for electric models), sending itineraries to the vehicle's navigation system, and radio control. Focus on stability, scalability and compliance of functionality shared across multiple automotive brands."
     },
-    stack:['Kotlin','MVVM','Navigation','Flow','Room','Retrofit'],
+    stack:['Kotlin','MVVM','Navigation','Flow','Room','Retrofit','Clean Architecture','Architecture modulaire','Espresso','JUnit'],
     links:[
       {label:'MyPeugeot', url:'https://play.google.com/store/apps/details?id=com.psa.mym.mypeugeot'},
       {label:'MyCitroën', url:'https://play.google.com/store/apps/details?id=com.psa.mym.mycitroen'},
@@ -514,8 +514,8 @@ const experiences = [
     hash:'2d98c7a', client:'OCS — Orange', avatar:'OC', color:'#ffb86b', role:{fr:'Développeur Android (CDI) — équipe OPTV', en:'Android Developer (permanent) — OPTV team'},
     period:'05/2022 — 08/2022',
     desc:{
-      fr:"Application de streaming OCS (films, séries, documentaires) multi-plateforme. Intégration de l'authentification pour plusieurs opérateurs télécom (Bouygues, Swisscom, Free) et développement de l'app « OCS Youth » pour le jeune public.",
-      en:"OCS streaming app (movies, series, documentaries), cross-platform. Implemented authentication for multiple telecom operators (Bouygues, Swisscom, Free) and built the 'OCS Youth' app for younger audiences."
+      fr:"Application de streaming OCS (films, séries, documentaires, catalogue HBO), disponible sur mobile et tablette. Intégration de l'authentification pour plusieurs opérateurs télécom (Bouygues, Swisscom, Free), contribution à la fonctionnalité de cast Chromecast, à la gestion des profils utilisateurs, à la refonte de l'écran d'accueil (nouveau design), et développement de l'app « OCS Youth » pour le jeune public.",
+      en:"OCS streaming app (movies, series, documentaries, HBO catalog), available on mobile and tablet. Implemented authentication for multiple telecom operators (Bouygues, Swisscom, Free), contributed to Chromecast casting, user profile management, a home-screen redesign, and built the 'OCS Youth' app for younger audiences."
     },
     stack:['Kotlin','Clean Architecture','MVVM','Navigation','Room','Agile Scrum'],
     note:{fr:"App retirée du Play Store suite à la revente d'OCS à Canal+ (janvier 2024) — fusionné en Ciné+ OCS.", en:"Removed from the Play Store after OCS was sold to Canal+ (January 2024) — merged into Ciné+ OCS."}
@@ -524,24 +524,40 @@ const experiences = [
     hash:'9b21ee0', client:'La Poste', avatar:'LP', color:'#4fd8c4', role:{fr:'Développeur Android — équipe de 6', en:'Android Developer — team of 6'},
     period:'07/2020 — 02/2022',
     desc:{
-      fr:"Trois applications Android pour les agents postaux : badge numérique (remplaçant les cartes NFC), chargeur d'habilitations pour transférer les droits d'accès de façon sécurisée, et outil de vérification de compatibilité matérielle.",
-      en:"Three Android apps for postal workers: a digital badge replacing NFC access cards, a secure authorization loader for access credentials, and a device-compatibility checker."
+      fr:"Au sein d'une équipe de 6 développeurs, avec le Product Owner : trois applications Android pour le projet Vigik+ (V3) des facteurs. 1) Badge V3 dématérialisé : simule sur le téléphone du facteur un badge Vigik+ pour l'accès aux parties communes des immeubles (NFC + BLE). 2) Application superviseurs : attribution des habilitations aux facteurs, chargement des badges physiques V2/V3 (NFC), envoi des habilitations vers l'app facteur via Firebase. 3) Application de diagnostic : vérifie la compatibilité logicielle et matérielle du téléphone avec les deux applications précédentes.",
+      en:"Within a 6-developer team, working with the Product Owner: three Android apps for the postal workers' Vigik+ (V3) project. 1) Dematerialized V3 badge: emulates a Vigik+ badge on the postal worker's phone for building common-area access (NFC + BLE). 2) Supervisor app: grants authorizations to postal workers, loads physical V2/V3 badges (NFC), pushes authorizations to the worker app via Firebase. 3) Diagnostic app: checks phone software/hardware compatibility with the two apps above."
     },
-    stack:['Kotlin','MVVM','NFC','Room','Retrofit','JIRA/Redmine']
+    stack:['Kotlin','MVVM','NFC','BLE','Firebase','Room','Retrofit','Coroutines','Flow','JIRA','Confluence']
   },
   {
-    hash:'c440f19', client:'bitbase group', avatar:'BG', color:'#ff6b9d', role:{fr:'Développeur Android — équipe de 4 (ERP Kameon)', en:'Android Developer — team of 4 (Kameon ERP)'},
+    hash:'c440f19', client:'bitbase group — Kameon ERP', avatar:'KM', color:'#ff6b9d', role:{fr:'Développeur mobile (Xamarin/C#) — équipe de 4, usage interne', en:'Mobile Developer (Xamarin/C#) — team of 4, internal use'},
     period:'07/2017 — 11/2019',
     desc:{
-      fr:"Éditeur logiciel allemand. Version mobile de l'ERP « Kameon » : gestion du temps de travail, reporting graphique (Telerik), synchronisation de contacts, automatisation d'expériences en usine, lecteur de cartes de visite par OCR (Google Mobile Vision). En parallèle, projets clients : SG Stern (Mercedes — clubs sportifs), Medcon Team (SOS-Call — gestion des urgences médicales).",
-      en:"German software publisher. Mobile version of the 'Kameon' ERP: work-time tracking, chart-based reporting (Telerik), contact sync, factory experiment automation, and an OCR business-card reader (Google Mobile Vision). Also delivered client projects: SG Stern (Mercedes — sports clubs) and Medcon Team (SOS-Call — emergency response)."
+      fr:"Éditeur logiciel allemand. Développement de l'instance mobile de l'ERP interne « Kameon », au sein d'une équipe de 4 développeurs Android : Timer App (gestion du temps de travail), Reporting (visualisation par graphiques, Telerik), Address Book (synchronisation des contacts ERP web ↔ mobile, SQLite), Experimental Report (automatisation d'expériences en usine), BCR — Business Card Reader (lecteur de cartes de visite par OCR, Google Mobile Vision), authentification par empreinte digitale et reconnaissance faciale.",
+      en:"German software publisher. Built the mobile instance of the internal 'Kameon' ERP, within a 4-developer Android team: Timer App (work-time tracking), Reporting (chart-based visualization, Telerik), Address Book (web ERP ↔ mobile contact sync, SQLite), Experimental Report (factory experiment automation), BCR — Business Card Reader (OCR business-card scanning, Google Mobile Vision), fingerprint and facial-recognition authentication."
     },
-    stack:['Java','MVVM','SQLite','Google Mobile Vision','Picasso','Espresso'],
-    links:[
-      {label:'SOS Call (Medcon)', url:'https://play.google.com/store/apps/details?id=com.bitbase.soscall'},
-      {label:'SG Stern', url:'https://www.sgstern.de/de/'},
-      {label:'kameon (site actuel)', url:'https://www.kameon.de'}
-    ]
+    stack:['C#','Xamarin','Visual Studio','MVVM','SQLite','Google Mobile Vision','Firebase Push','Picasso'],
+    links:[{label:'kameon (site actuel)', url:'https://www.kameon.de'}]
+  },
+  {
+    hash:'b3d7a92', client:'SG Stern — Mercedes', avatar:'SG', color:'#ff6b9d', role:{fr:'Développeur Android — projet client (2 mois)', en:'Android Developer — client project (2 months)'},
+    period:'07/2017 — 11/2019',
+    desc:{
+      fr:"Projet client mené en parallèle chez bitbase group, pour Mercedes. L'application « SG Stern » donne aux salariés une vue centralisée des clubs sportifs d'entreprise auxquels ils sont inscrits : programme d'activités, inscription aux séances, suivi de participation.",
+      en:"Client project delivered alongside the Kameon ERP work at bitbase group, for Mercedes. The 'SG Stern' app gives employees a single view of the company sports clubs they've joined: activity schedules, session sign-up, participation tracking."
+    },
+    stack:['Kotlin','MVVM','Navigation','DataBinding','Retrofit','Picasso'],
+    links:[{label:'SG Stern', url:'https://www.sgstern.de/de/'}]
+  },
+  {
+    hash:'e91c04f', client:'SOS Call — Medcon Team', avatar:'SC', color:'#ff6b9d', role:{fr:'Développeur Android — projet client (3 mois)', en:'Android Developer — client project (3 months)'},
+    period:'07/2017 — 11/2019',
+    desc:{
+      fr:"Projet client mené en parallèle chez bitbase group, pour un groupe de médecins allemands (Medcon Team). « SOS Call » aide les voyageurs à réagir vite en cas d'urgence à l'étranger : affichage instantané des numéros d'urgence (police, pompiers, ambulance) du pays où l'utilisateur se trouve, géolocalisation, et fonctionnement hors ligne — les numéros restent accessibles même sans réseau.",
+      en:"Client project delivered alongside the Kameon ERP work at bitbase group, for a group of German doctors (Medcon Team). 'SOS Call' helps travelers react fast to emergencies abroad: instant display of the local emergency numbers (police, fire, ambulance) for whichever country the user is in, geolocation, and offline support — numbers stay accessible even without network coverage."
+    },
+    stack:['Kotlin','MVVM','DataBinding','Retrofit','Location Services','Maps SDK'],
+    links:[{label:'SOS Call', url:'https://play.google.com/store/apps/details?id=com.bitbase.soscall'}]
   },
   {
     hash:'0a77c56', client:'Synchronecs', avatar:'SY', color:'var(--green)', role:{fr:'Développeur — projet Unisas', en:'Developer — Unisas project'},
@@ -553,14 +569,23 @@ const experiences = [
     stack:['Java','WebSocket','PHP','JavaScript']
   },
   {
-    hash:'44be2d1', client:'AvMap (Tuntech)', avatar:'AV', color:'var(--purple)', role:{fr:'Développeur — projet Engibox', en:'Developer — Engibox project'},
+    hash:'44be2d1', client:'AvMap — Portail EngiBOX', avatar:'AV', color:'var(--purple)', role:{fr:'Développeur Web — Tuntech (5 mois)', en:'Web Developer — Tuntech (5 months)'},
     period:'10/2015 — 06/2016',
     desc:{
-      fr:"Système embarqué aéronautique collectant les données moteur (RPM, niveau et température d'huile, GPS). L'app mobile récupère un fichier binaire depuis le boîtier Engibox et l'envoie à un serveur, la plateforme web le décompresse en graphiques exploitables.",
-      en:"Embedded aviation system collecting engine data (RPM, oil level/temperature, GPS). The mobile app pulls a binary file from the Engibox device and uploads it to a server; the web platform decompresses it into readable charts."
+      fr:"EngiBOX est un boîtier embarqué installé sur les avions, qui collecte en continu les données moteur (RPM, niveau et température d'huile, position GPS). Développement du portail web « EngiBOX web portal », qui centralise ces données pour un monitoring en temps réel des moteurs et facilite leur partage avec les centres de maintenance — un outil de suivi pensé pour anticiper les interventions plutôt que les subir.",
+      en:"EngiBOX is an onboard aircraft device that continuously collects engine data (RPM, oil level/temperature, GPS position). Built the 'EngiBOX web portal', which centralizes this data for real-time engine monitoring and makes it easy to share with maintenance service centers — a tracking tool built to anticipate maintenance needs rather than react to them."
     },
-    stack:['Java','Bluetooth Low Energy','Redmine','SVN'],
+    stack:['Zend Framework 2','PHP5','Doctrine 2.0','Bootstrap','jQuery'],
     links:[{label:'Portail EngiBOX', url:'https://engibox.avmap.it/'}]
+  },
+  {
+    hash:'2f9e7c1', client:'AvMap — Engibox App', avatar:'AV', color:'var(--purple)', role:{fr:'Développeur Android — Tuntech (4 mois)', en:'Android Developer — Tuntech (4 months)'},
+    period:'10/2015 — 06/2016',
+    desc:{
+      fr:"Application mobile « Engibox App », le maillon terrain de la chaîne EngiBOX : elle récupère en Bluetooth Low Energy le fichier binaire généré par le boîtier embarqué, l'envoie au serveur pour traitement, et gère le partage des données avec les centres de service — permettant aux techniciens de récupérer les données moteur sans intervention filaire sur l'appareil.",
+      en:"'Engibox App', the field link in the EngiBOX chain: it retrieves the binary file generated by the onboard device over Bluetooth Low Energy, uploads it to the server for processing, and manages data sharing with service centers — letting technicians pull engine data without a wired connection to the device."
+    },
+    stack:['Java','Bluetooth Low Energy','Redmine','SVN']
   },
   {
     hash:'11f6a80', client:'Permicible (Zetacos)', avatar:'PC', color:'#ffb86b', role:{fr:"Développeur — auto-école", en:'Developer — driving school'},
@@ -610,6 +635,21 @@ const io = new IntersectionObserver((entries) => {
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
 document.getElementById('year').textContent = new Date().getFullYear();
+
+// ---------------- email button fallback (mailto often silently fails without a configured mail app) ----------------
+function wireEmailFallback(id, labelSelector){
+  const el = document.getElementById(id);
+  if(!el) return;
+  el.addEventListener('click', () => {
+    navigator.clipboard?.writeText('jassembh@outlook.fr').catch(() => {});
+    const labels = el.querySelectorAll(labelSelector);
+    const original = [];
+    labels.forEach(l => { original.push(l.textContent); l.textContent = (document.documentElement.getAttribute('data-lang') === 'en') ? 'Copied ✓' : 'Copié ✓'; });
+    setTimeout(() => { labels.forEach((l,i) => l.textContent = original[i]); }, 2000);
+  });
+}
+wireEmailFallback('ctaEmail', 'span');
+wireEmailFallback('sheetEmail', 'span');
 </script>
 </body>
 </html>
