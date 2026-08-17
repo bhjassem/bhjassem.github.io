@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jassem Ben Hamida — Android &amp; Kotlin Multiplatform Developer</title>
+<meta name="description" content="Développeur Android freelance, 10 ans d'expérience — Kotlin, Jetpack Compose, KMP. Missions BPCE, Stellantis, Bouygues Telecom, OCS/Orange, La Poste.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%233DDC84' d='M6 18c0 .55.45 1 1 1h1v3.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5V19h2v3.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5V19h1c.55 0 1-.45 1-1V8H6v10zM3.5 8C2.67 8 2 8.67 2 9.5v7c0 .83.67 1.5 1.5 1.5S5 17.33 5 16.5v-7C5 8.67 4.33 8 3.5 8zm17 0c-.83 0-1.5.67-1.5 1.5v7c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5v-7c0-.83-.67-1.5-1.5-1.5zm-4.97-5.84l1.3-1.3c.2-.2.2-.51 0-.71-.2-.2-.51-.2-.71 0l-1.48 1.48C13.85 1.23 12.95 1 12 1c-.96 0-1.86.23-2.66.63L7.85.15c-.2-.2-.51-.2-.71 0-.2.2-.2.51 0 .71l1.31 1.31C6.97 3.26 6 5.01 6 7h12c0-1.99-.97-3.75-2.47-4.84zM10 5H9V4h1v1zm5 0h-1V4h1v1z'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0a1210;
+    --bg-alt:#0e1a14;
+    --surface:#122019;
+    --surface-2:#16261d;
+    --border:#223327;
+    --green:#3ddc84;
+    --green-dim:#2baf68;
+    --purple:#7f52ff;
+    --purple-dim:#5c3dd1;
+    --amber:#ffb86b;
+    --text:#eaf3ec;
+    --text-muted:#8fa79a;
+    --text-faint:#5c7367;
+    --mono:'JetBrains Mono', ui-monospace, monospace;
+    --sans:'Manrope', system-ui, sans-serif;
+    --radius:10px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--sans);
+    line-height:1.6;
+    overflow-x:hidden;
+    background-image:
+      radial-gradient(ellipse 900px 600px at 85% -10%, rgba(127,82,255,.16), transparent 60%),
+      radial-gradient(ellipse 700px 500px at -10% 20%, rgba(61,220,132,.10), transparent 60%);
+  }
+  ::selection{background:var(--green);color:#04140b}
+  a{color:inherit;text-decoration:none}
+  img,svg{display:block}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:12.5px;
+    letter-spacing:.06em;
+    color:var(--green);
+    display:flex;align-items:center;gap:8px;
+    text-transform:none;
+    margin-bottom:14px;
+  }
+  .eyebrow::before{content:"//";color:var(--text-faint)}
+  h1,h2,h3{font-family:var(--mono);font-weight:700;letter-spacing:-.01em}
+  section{padding:96px 0}
+  @media (max-width:640px){section{padding:64px 0}}
+
+  /* ---------- nav ---------- */
+  header{
+    position:sticky;top:0;z-index:50;
+    backdrop-filter:blur(10px);
+    background:rgba(10,18,16,.75);
+    border-bottom:1px solid var(--border);
+  }
+  header .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .brand{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-weight:700;font-size:15px}
+  .brand .dot{width:9px;height:9px;border-radius:50%;background:var(--green);box-shadow:0 0 10px var(--green)}
+  nav.links{display:flex;gap:26px;font-family:var(--mono);font-size:13px;color:var(--text-muted)}
+  nav.links a:hover{color:var(--green)}
+  @media (max-width:720px){nav.links{display:none}}
+  .lang-toggle{
+    display:flex;align-items:center;gap:0;
+    font-family:var(--mono);font-size:12px;font-weight:700;
+    border:1px solid var(--border);border-radius:999px;overflow:hidden;cursor:pointer;
+    background:var(--surface);
+  }
+  .lang-toggle span{padding:7px 14px;color:var(--text-faint);transition:.2s}
+  .lang-toggle span.active{background:var(--green);color:#04140b}
+
+  /* ---------- hero ---------- */
+  .hero{padding:88px 0 60px}
+  .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
+  @media (max-width:900px){.hero-grid{grid-template-columns:1fr}}
+  .hero h1{font-size:clamp(30px,4.6vw,46px);line-height:1.12;margin-bottom:18px}
+  .hero h1 .hl{color:var(--green)}
+  .hero p.lede{color:var(--text-muted);font-size:16.5px;max-width:52ch;margin-bottom:28px}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:34px}
+  .chip{
+    font-family:var(--mono);font-size:12px;padding:6px 12px;border-radius:999px;
+    border:1px solid var(--border);color:var(--text-muted);background:var(--surface);
+  }
+  .chip.on{border-color:var(--green-dim);color:var(--green)}
+  .cta-row{display:flex;gap:14px;flex-wrap:wrap}
+  .btn{
+    font-family:var(--mono);font-size:13.5px;font-weight:600;padding:13px 22px;border-radius:8px;
+    display:inline-flex;align-items:center;gap:8px;border:1px solid transparent;transition:.2s;
+  }
+  .btn-primary{background:var(--green);color:#04140b}
+  .btn-primary:hover{background:#5be89e;transform:translateY(-1px)}
+  .btn-ghost{border-color:var(--border);color:var(--text)}
+  .btn-ghost:hover{border-color:var(--green-dim);color:var(--green)}
+
+  /* logcat terminal */
+  .terminal{
+    background:#0c1512;border:1px solid var(--border);border-radius:var(--radius);
+    box-shadow:0 30px 60px -20px rgba(0,0,0,.6);overflow:hidden;
+  }
+  .terminal .tbar{
+    display:flex;align-items:center;gap:8px;padding:10px 14px;background:var(--surface-2);
+    border-bottom:1px solid var(--border);font-family:var(--mono);font-size:11.5px;color:var(--text-faint);
+  }
+  .terminal .tbar .tdot{width:9px;height:9px;border-radius:50%}
+  .terminal .tbody{padding:16px 18px;font-family:var(--mono);font-size:12.3px;min-height:230px}
+  .terminal .line{white-space:pre-wrap;margin-bottom:5px;opacity:0}
+  .terminal .line.show{opacity:1}
+  .lvl-d{color:#6ea8fe}
+  .lvl-i{color:var(--green)}
+  .lvl-w{color:var(--amber)}
+  .tag{color:var(--purple)}
+  .msg{color:#c9d6cd}
+  .caret{display:inline-block;width:7px;height:14px;background:var(--green);vertical-align:middle;animation:blink 1s step-end infinite}
+  @keyframes blink{50%{opacity:0}}
+
+  /* ---------- section headers ---------- */
+  .sec-head{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:38px}
+  .sec-head h2{font-size:clamp(22px,3vw,30px)}
+  .sec-head .file{font-family:var(--mono);font-size:12px;color:var(--text-faint)}
+
+  /* ---------- gradle skills block ---------- */
+  .gradle{
+    background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+    overflow:hidden;
+  }
+  .gradle .tbar{padding:10px 14px;border-bottom:1px solid var(--border);font-family:var(--mono);font-size:12px;color:var(--text-faint);display:flex;justify-content:space-between}
+  .gradle pre{padding:22px 24px;overflow-x:auto;font-family:var(--mono);font-size:13px;line-height:1.85}
+  .gradle .kw{color:var(--purple)}
+  .gradle .fn{color:var(--green)}
+  .gradle .str{color:var(--amber)}
+  .gradle .cm{color:var(--text-faint)}
+
+  .kmp-banner{
+    margin-top:22px;border:1px solid var(--purple-dim);border-radius:var(--radius);
+    padding:20px 24px;display:flex;gap:16px;align-items:flex-start;
+    background:linear-gradient(135deg, rgba(127,82,255,.08), rgba(61,220,132,.05));
+  }
+  .kmp-banner .ico{flex:none;width:38px;height:38px;border-radius:9px;background:var(--purple);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-weight:800;color:#fff}
+  .kmp-banner h3{font-size:15px;margin-bottom:6px;color:var(--purple)}
+  .kmp-banner p{color:var(--text-muted);font-size:14px}
+
+  /* ---------- experience: git log ---------- */
+  .gitlog{position:relative;padding-left:26px}
+  .gitlog::before{content:"";position:absolute;left:5px;top:6px;bottom:6px;width:1px;background:linear-gradient(var(--green-dim), var(--border))}
+  .commit{position:relative;padding-bottom:36px}
+  .commit:last-child{padding-bottom:0}
+  .commit::before{
+    content:"";position:absolute;left:-26px;top:4px;width:11px;height:11px;border-radius:50%;
+    background:var(--bg);border:2px solid var(--green);
+  }
+  .commit .row{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:6px}
+  .commit .hash{font-family:var(--mono);color:var(--amber);font-size:12px}
+  .commit .client{font-family:var(--mono);font-weight:700;font-size:16px}
+  .commit .role{color:var(--text-muted);font-size:13px}
+  .commit .period{margin-left:auto;font-family:var(--mono);font-size:11.5px;color:var(--text-faint)}
+  .commit p.desc{color:var(--text-muted);font-size:14.5px;max-width:70ch;margin:8px 0 12px}
+  .commit .stack{display:flex;flex-wrap:wrap;gap:6px}
+  .commit .stack span{font-family:var(--mono);font-size:11px;color:var(--text-faint);border:1px solid var(--border);padding:3px 8px;border-radius:5px}
+
+  /* ---------- education ---------- */
+  .edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  @media (max-width:640px){.edu-grid{grid-template-columns:1fr}}
+  .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:22px}
+  .card .yr{font-family:var(--mono);color:var(--green);font-size:13px;margin-bottom:6px}
+  .card h3{font-size:15.5px;font-weight:700;margin-bottom:4px}
+  .card p{color:var(--text-muted);font-size:13.5px}
+
+  /* ---------- contact: share sheet ---------- */
+  .sheet{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:8px;max-width:560px;margin:0 auto}
+  .sheet .head{padding:20px 20px 14px;text-align:center}
+  .sheet .head h3{font-size:16px}
+  .sheet .head p{color:var(--text-faint);font-size:12.5px;font-family:var(--mono);margin-top:4px}
+  .sheet-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;padding:8px}
+  @media (max-width:520px){.sheet-grid{grid-template-columns:repeat(3,1fr)}}
+  .sheet-app{
+    display:flex;flex-direction:column;align-items:center;gap:8px;padding:16px 8px;border-radius:12px;
+    transition:.15s;
+  }
+  .sheet-app:hover{background:var(--surface-2)}
+  .sheet-app .ic{width:46px;height:46px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-weight:800;font-size:15px;color:#04140b}
+  .sheet-app span{font-size:11.5px;color:var(--text-muted);text-align:center}
+
+  footer{border-top:1px solid var(--border);padding:34px 0;text-align:center}
+  footer p{font-family:var(--mono);font-size:12px;color:var(--text-faint)}
+
+  [data-en]{display:none}
+  html[data-lang="en"] [data-fr]{display:none}
+  html[data-lang="en"] [data-en]{display:initial}
+  html[data-lang="en"] .commit p.desc[data-en]{display:block}
+  html[data-lang="en"] p.lede[data-en]{display:block}
+  html[data-lang="en"] .kmp-banner p[data-en]{display:block}
+
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease, transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="brand"><span class="dot"></span> jassem<span style="color:var(--text-faint)">.</span>dev</div>
+    <nav class="links">
+      <a href="#skills" data-fr>Compétences</a><a href="#skills" data-en>Skills</a>
+      <a href="#experience" data-fr>Expérience</a><a href="#experience" data-en>Experience</a>
+      <a href="#education" data-fr>Formation</a><a href="#education" data-en>Education</a>
+      <a href="#contact" data-fr>Contact</a><a href="#contact" data-en>Contact</a>
+    </nav>
+    <div class="lang-toggle" id="langToggle">
+      <span data-lang-btn="fr" class="active">FR</span><span data-lang-btn="en">EN</span>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow"><span data-fr>package com.jassem.dev</span><span data-en>package com.jassem.dev</span></div>
+      <h1>
+        <span data-fr>Développeur <span class="hl">Android</span> &amp; <span class="hl">Kotlin Multiplatform</span></span>
+        <span data-en>Building <span class="hl">Android</span> &amp; <span class="hl">Kotlin Multiplatform</span> apps</span>
+      </h1>
+      <p class="lede" data-fr>10 ans d'expérience Android en freelance. Kotlin, Jetpack Compose, Clean Architecture — au service de banques, médias et constructeurs automobiles (BPCE, Stellantis, Bouygues Telecom, Orange).</p>
+      <p class="lede" data-en>10 years of Android experience as a freelancer. Kotlin, Jetpack Compose, Clean Architecture — shipped for banking, media and automotive clients (BPCE, Stellantis, Bouygues Telecom, Orange).</p>
+      <div class="chips">
+        <div class="chip on">Kotlin</div>
+        <div class="chip on">Jetpack Compose</div>
+        <div class="chip on">Kotlin Multiplatform</div>
+        <div class="chip">Clean Architecture</div>
+        <div class="chip">Coroutines / Flow</div>
+        <div class="chip" data-fr>Full remote</div>
+        <div class="chip" data-en>Full remote</div>
+      </div>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="mailto:jassembh@outlook.fr"><span data-fr>Me contacter</span><span data-en>Get in touch</span></a>
+        <a class="btn btn-ghost" href="CV_Jassem_BEN_HAMIDA.pdf" target="_blank"><span data-fr>Voir le CV</span><span data-en>View résumé</span></a>
+        <a class="btn btn-ghost" href="https://github.com/bhjassem" target="_blank">GitHub ↗</a>
+      </div>
+    </div>
+
+    <div class="terminal">
+      <div class="tbar"><span class="tdot" style="background:#ff5f57"></span><span class="tdot" style="background:#febc2e"></span><span class="tdot" style="background:#28c840"></span>&nbsp; adb logcat -s Jassem:*</div>
+      <div class="tbody" id="logcat"></div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 data-fr>Stack technique</h2><h2 data-en>Tech stack</h2>
+      <div class="file">app/build.gradle.kts</div>
+    </div>
+
+    <div class="gradle">
+      <div class="tbar"><span>build.gradle.kts</span><span data-fr>10 ans · production</span><span data-en>10 years · production</span></div>
+      <pre><span class="kw">dependencies</span> {
+    <span class="cm">// — Langage & UI —</span>
+    <span class="fn">implementation</span>(<span class="str">"kotlin:stdlib:1.9+"</span>)
+    <span class="fn">implementation</span>(<span class="str">"androidx.compose:ui"</span>)          <span class="cm">// Jetpack Compose, Material Design</span>
+    <span class="fn">implementation</span>(<span class="str">"androidx.compose:animation"</span>)
+    <span class="fn">implementation</span>(<span class="str">"legacy:databinding+viewbinding"</span>)
+
+    <span class="cm">// — Multiplatform —</span>
+    <span class="fn">implementation</span>(<span class="str">"org.jetbrains.kotlin:multiplatform"</span>)   <span class="cm">// KMP — expect/actual, source sets</span>
+    <span class="fn">implementation</span>(<span class="str">"org.jetbrains.compose:multiplatform"</span>)  <span class="cm">// Compose Multiplatform</span>
+
+    <span class="cm">// — Architecture —</span>
+    <span class="fn">implementation</span>(<span class="str">"pattern:mvvm+mvi+mvp"</span>)
+    <span class="fn">implementation</span>(<span class="str">"pattern:clean-architecture"</span>)
+    <span class="fn">implementation</span>(<span class="str">"di:hilt+dagger2+koin"</span>)
+    <span class="fn">implementation</span>(<span class="str">"async:coroutines+flow+rxjava"</span>)
+
+    <span class="cm">// — Data & réseau —</span>
+    <span class="fn">implementation</span>(<span class="str">"squareup:retrofit+okhttp3"</span>)
+    <span class="fn">implementation</span>(<span class="str">"androidx.room:runtime"</span>)
+    <span class="fn">implementation</span>(<span class="str">"google.firebase:firestore+crashlytics"</span>)
+    <span class="fn">implementation</span>(<span class="str">"media:exoplayer+google-ima-sdk"</span>)
+    <span class="fn">implementation</span>(<span class="str">"connectivity:ble+nfc+location"</span>)
+
+    <span class="cm">// — Qualité & CI/CD —</span>
+    <span class="fn">testImplementation</span>(<span class="str">"junit:espresso"</span>)
+    <span class="fn">implementation</span>(<span class="str">"quality:sonarqube"</span>)
+    <span class="fn">implementation</span>(<span class="str">"ci:jenkins+gitlab-ci"</span>)
+
+    <span class="cm">// — Process —</span>
+    <span class="fn">implementation</span>(<span class="str">"agile:scrum+jira+confluence"</span>)
+}</pre>
+    </div>
+
+    <div class="kmp-banner">
+      <div class="ico">KM</div>
+      <div>
+        <h3 data-fr>Pourquoi Kotlin Multiplatform</h3>
+        <h3 data-en>Why Kotlin Multiplatform</h3>
+        <p data-fr>Je maintiens un projet KMP personnel en veille techno continue (source sets, expect/actual, Compose Multiplatform) pour rester au niveau sur le partage de logique métier Android/iOS/desktop — au-delà de l'Android pur.</p>
+        <p data-en style="display:none">I maintain a personal KMP project as ongoing tech-watch (source sets, expect/actual, Compose Multiplatform) to stay sharp on sharing business logic across Android/iOS/desktop — beyond Android-only work.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 data-fr>Missions</h2><h2 data-en>Experience</h2>
+      <div class="file" data-fr>git log --author=jassem --oneline</div>
+      <div class="file" data-en>git log --author=jassem --oneline</div>
+    </div>
+
+    <div class="gitlog" id="gitlog"></div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 data-fr>Formation & langues</h2><h2 data-en>Education & languages</h2>
+      <div class="file">AndroidManifest.xml</div>
+    </div>
+    <div class="edu-grid">
+      <div class="card">
+        <div class="yr">2014</div>
+        <h3 data-fr>Diplôme national d'ingénieur — Sciences et technologies appliquées</h3>
+        <h3 data-en style="display:none">National Engineering Degree — Applied Sciences &amp; Technologies</h3>
+        <p>ISSAT Sousse, Tunisie</p>
+      </div>
+      <div class="card">
+        <div class="yr">2009</div>
+        <h3 data-fr>Baccalauréat — Informatique</h3>
+        <h3 data-en style="display:none">High School Diploma — Computer Science</h3>
+        <p data-fr>Section informatique</p>
+        <p data-en style="display:none">Computer science track</p>
+      </div>
+      <div class="card">
+        <div class="yr" data-fr>Langues</div><div class="yr" data-en style="display:none">Languages</div>
+        <h3>Français</h3>
+        <p data-fr>Bilingue / natif</p><p data-en style="display:none">Native / bilingual</p>
+      </div>
+      <div class="card">
+        <div class="yr" data-fr>Langues</div><div class="yr" data-en style="display:none">Languages</div>
+        <h3 data-fr>Anglais</h3><h3 data-en style="display:none">English</h3>
+        <p data-fr>Courant — capacité professionnelle complète</p>
+        <p data-en style="display:none">Fluent — full professional proficiency</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="sec-head" style="justify-content:center;text-align:center;flex-direction:column;align-items:center">
+      <h2 data-fr>Travaillons ensemble</h2><h2 data-en>Let's work together</h2>
+    </div>
+
+    <div class="sheet">
+      <div class="head">
+        <h3 data-fr>Ouvrir avec…</h3><h3 data-en>Open with…</h3>
+        <p data-fr>Disponible full remote · mission ou CDI</p>
+        <p data-en>Available full remote · contract or permanent</p>
+      </div>
+      <div class="sheet-grid">
+        <a class="sheet-app" href="mailto:jassembh@outlook.fr">
+          <div class="ic" style="background:var(--green)">@</div>
+          <span>Email</span>
+        </a>
+        <a class="sheet-app" href="https://www.linkedin.com/in/bhjassem/" target="_blank">
+          <div class="ic" style="background:#0a66c2">in</div>
+          <span>LinkedIn</span>
+        </a>
+        <a class="sheet-app" href="https://www.malt.fr/profile/jassembenhamida3" target="_blank">
+          <div class="ic" style="background:#fc5757">M</div>
+          <span>Malt</span>
+        </a>
+        <a class="sheet-app" href="https://github.com/bhjassem" target="_blank">
+          <div class="ic" style="background:#f4f4f4;color:#111">gh</div>
+          <span>GitHub</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>Jassem Ben Hamida — Android &amp; Kotlin Multiplatform Developer · <span id="year"></span></p>
+</footer>
+
+<script>
+// ---------------- lang toggle ----------------
+const langToggle = document.getElementById('langToggle');
+langToggle.addEventListener('click', (e) => {
+  const btn = e.target.closest('[data-lang-btn]');
+  if(!btn) return;
+  const lang = btn.dataset.langBtn;
+  document.documentElement.setAttribute('data-lang', lang);
+  document.documentElement.lang = lang;
+  langToggle.querySelectorAll('span').forEach(s => s.classList.toggle('active', s.dataset.langBtn === lang));
+  localStorage.setItem('jb-lang', lang);
+});
+const savedLang = 'fr'; // in-memory default; no persistence relied upon
+document.documentElement.setAttribute('data-lang', savedLang);
+
+// ---------------- logcat animation ----------------
+const logLines = [
+  {lvl:'D', tag:'Career', msg:'10+ years — Android developer'},
+  {lvl:'I', tag:'Stack', msg:'Kotlin · Jetpack Compose · KMP'},
+  {lvl:'I', tag:'Clients', msg:'BPCE · Stellantis · Bouygues · Orange'},
+  {lvl:'D', tag:'Architecture', msg:'MVVM · MVI · Clean Architecture'},
+  {lvl:'W', tag:'Availability', msg:'open_to_work = true, remote = true'},
+];
+const logLinesEn = [
+  {lvl:'D', tag:'Career', msg:'10+ years — Android developer'},
+  {lvl:'I', tag:'Stack', msg:'Kotlin · Jetpack Compose · KMP'},
+  {lvl:'I', tag:'Clients', msg:'BPCE · Stellantis · Bouygues · Orange'},
+  {lvl:'D', tag:'Architecture', msg:'MVVM · MVI · Clean Architecture'},
+  {lvl:'W', tag:'Availability', msg:'open_to_work = true, remote = true'},
+];
+const logcat = document.getElementById('logcat');
+function renderLog(){
+  logcat.innerHTML = '';
+  let delay = 0;
+  logLines.forEach((l) => {
+    const div = document.createElement('div');
+    div.className = 'line lvl-' + l.lvl.toLowerCase();
+    div.innerHTML = `<span class="lvl-${l.lvl.toLowerCase()}">${l.lvl}/</span><span class="tag">${l.tag}</span>: <span class="msg">${l.msg}</span>`;
+    logcat.appendChild(div);
+    setTimeout(() => div.classList.add('show'), delay);
+    delay += 380;
+  });
+  const caretLine = document.createElement('div');
+  caretLine.className = 'line show';
+  caretLine.innerHTML = '<span class="caret"></span>';
+  logcat.appendChild(caretLine);
+}
+renderLog();
+
+// ---------------- experience data ----------------
+const experiences = [
+  {
+    hash:'a1c9e2f', client:'BPCE', role:{fr:'Développeur Android freelance — équipe Cocooning', en:'Freelance Android Developer — Cocooning team'},
+    period:'10/2022 — auj.',
+    desc:{
+      fr:"Groupe bancaire (Banque Populaire, Caisse d'Épargne). Développement de fonctionnalités clés : offres (parrainage, retraite), assistant conversationnel (chatbot IA interne), application Jeunes (thèmes, vidéos pédagogiques), gestion des mandats et prélèvements. Planification JIRA de l'équipe dev, mise en place de standards de code et de tests unitaires.",
+      en:"Banking group (Banque Populaire, Caisse d'Épargne). Built key features: offers (referral, retirement), an internal AI assistant/chatbot, a youth-focused app (themes, educational videos), and mandate/direct-debit management. Owned JIRA task planning for the dev team and rolled out coding standards and unit testing."
+    },
+    stack:['Kotlin','Compose','Koin','MVI/MVP','Retrofit','Coroutines','Jenkins']
+  },
+  {
+    hash:'7f3b108', client:'Stellantis', role:{fr:'Développeur Android — équipe SDK2', en:'Android Developer — SDK2 team'},
+    period:'2022',
+    desc:{
+      fr:"Contribution à une white-app de test pour la plateforme PIMS Core, socle commun des applications des marques du groupe Stellantis. Objectif : garantir stabilité, scalabilité et conformité des fonctionnalités partagées entre marques automobiles.",
+      en:"Contributed to a white-label test app for the PIMS Core platform, the shared foundation behind Stellantis' brand-specific apps. Focus on stability, scalability and compliance of functionality shared across multiple automotive brands."
+    },
+    stack:['Kotlin','MVVM','Navigation','Flow','Room','Retrofit']
+  },
+  {
+    hash:'5e0a441', client:'Bouygues Telecom — BTV', role:{fr:'Développeur Android — équipe de 5', en:'Android Developer — team of 5'},
+    period:'2019 — 2020',
+    desc:{
+      fr:"Application multimédia complète (mobile + tablette) : TV en direct, replay, enregistrement de programmes, radios et podcasts. Analyse technique, développement, mise en place des standards de code.",
+      en:"Full multimedia app (phone + tablet): live TV, replay, program recording, radio stations and podcasts. Technical analysis, feature development, coding standards."
+    },
+    stack:['Kotlin','Clean Architecture','MVVM','ExoPlayer','Google IMA SDK','Flow']
+  },
+  {
+    hash:'2d98c7a', client:'OCS — Orange', role:{fr:'Développeur Android — équipe OPTV', en:'Android Developer — OPTV team'},
+    period:'05/2020 — 08/2022',
+    desc:{
+      fr:"Application de streaming OCS (films, séries, documentaires) multi-plateforme. Intégration de l'authentification pour plusieurs opérateurs télécom (Bouygues, Swisscom, Free) et développement de l'app « OCS Youth » pour le jeune public.",
+      en:"OCS streaming app (movies, series, documentaries), cross-platform. Implemented authentication for multiple telecom operators (Bouygues, Swisscom, Free) and built the 'OCS Youth' app for younger audiences."
+    },
+    stack:['Kotlin','Clean Architecture','MVVM','Navigation','Room','Agile Scrum']
+  },
+  {
+    hash:'9b21ee0', client:'La Poste', role:{fr:'Développeur Android — équipe de 6', en:'Android Developer — team of 6'},
+    period:'07/2020 — 02/2022',
+    desc:{
+      fr:"Trois applications Android pour les agents postaux : badge numérique (remplaçant les cartes NFC), chargeur d'habilitations pour transférer les droits d'accès de façon sécurisée, et outil de vérification de compatibilité matérielle.",
+      en:"Three Android apps for postal workers: a digital badge replacing NFC access cards, a secure authorization loader for access credentials, and a device-compatibility checker."
+    },
+    stack:['Kotlin','MVVM','NFC','Room','Retrofit','JIRA/Redmine']
+  },
+  {
+    hash:'c440f19', client:'bitbase group', role:{fr:'Développeur Android — équipe de 4 (ERP Kameon)', en:'Android Developer — team of 4 (Kameon ERP)'},
+    period:'07/2017 — 11/2019',
+    desc:{
+      fr:"Éditeur logiciel allemand. Version mobile de l'ERP « Kameon » : gestion du temps de travail, reporting graphique (Telerik), synchronisation de contacts, automatisation d'expériences en usine, lecteur de cartes de visite par OCR (Google Mobile Vision). En parallèle, projets clients : SG Stern (Mercedes — clubs sportifs), Medcon Team (SOS-Call — gestion des urgences médicales).",
+      en:"German software publisher. Mobile version of the 'Kameon' ERP: work-time tracking, chart-based reporting (Telerik), contact sync, factory experiment automation, and an OCR business-card reader (Google Mobile Vision). Also delivered client projects: SG Stern (Mercedes — sports clubs) and Medcon Team (SOS-Call — emergency response)."
+    },
+    stack:['Java','MVVM','SQLite','Google Mobile Vision','Picasso','Espresso']
+  },
+  {
+    hash:'0a77c56', client:'Synchronecs', role:{fr:'Développeur — projet Unisas', en:'Developer — Unisas project'},
+    period:'06/2016 — 03/2017',
+    desc:{
+      fr:"Module de pilotage d'une caméra intelligente : reconnaissance faciale, streaming vidéo en direct, contrôle d'orientation à distance — base d'un système de vidéosurveillance interactive.",
+      en:"Control module for a smart camera: facial recognition, live video streaming, remote orientation control — groundwork for an interactive surveillance system."
+    },
+    stack:['Java','WebSocket','PHP','JavaScript']
+  },
+  {
+    hash:'44be2d1', client:'AvMap (Tuntech)', role:{fr:'Développeur — projet Engibox', en:'Developer — Engibox project'},
+    period:'10/2015 — 06/2016',
+    desc:{
+      fr:"Système embarqué aéronautique collectant les données moteur (RPM, niveau et température d'huile, GPS). L'app mobile récupère un fichier binaire depuis le boîtier Engibox et l'envoie à un serveur, la plateforme web le décompresse en graphiques exploitables.",
+      en:"Embedded aviation system collecting engine data (RPM, oil level/temperature, GPS). The mobile app pulls a binary file from the Engibox device and uploads it to a server; the web platform decompresses it into readable charts."
+    },
+    stack:['Java','Bluetooth Low Energy','Redmine','SVN']
+  },
+  {
+    hash:'11f6a80', client:'Permicible (Zetacos)', role:{fr:"Développeur — auto-école", en:'Developer — driving school'},
+    period:'02/2015 — 09/2015',
+    desc:{
+      fr:"Application Android pour digitaliser les process internes d'une auto-école : gestion des élèves, planification, paiements.",
+      en:"Android app digitizing a driving school's internal workflows: student management, scheduling, payments."
+    },
+    stack:['Java','PayPal SDK']
+  }
+];
+
+const gitlog = document.getElementById('gitlog');
+experiences.forEach(x => {
+  const el = document.createElement('div');
+  el.className = 'commit reveal';
+  el.innerHTML = `
+    <div class="row">
+      <span class="hash">${x.hash}</span>
+      <span class="client">${x.client}</span>
+      <span class="period">${x.period}</span>
+    </div>
+    <div class="role" data-fr>${x.role.fr}</div>
+    <div class="role" data-en style="display:none">${x.role.en}</div>
+    <p class="desc" data-fr>${x.desc.fr}</p>
+    <p class="desc" data-en style="display:none">${x.desc.en}</p>
+    <div class="stack">${x.stack.map(s => `<span>${s}</span>`).join('')}</div>
+  `;
+  gitlog.appendChild(el);
+});
+
+// language switch also needs to flip the inline-styled data-en blocks
+const observer = new MutationObserver(() => {
+  const lang = document.documentElement.getAttribute('data-lang');
+  document.querySelectorAll('[data-en]').forEach(n => { if(n.style) n.style.display = (lang==='en') ? '' : 'none'; });
+  document.querySelectorAll('[data-fr]').forEach(n => { if(n.style) n.style.display = (lang==='en') ? 'none' : ''; });
+});
+observer.observe(document.documentElement, {attributes:true, attributeFilter:['data-lang']});
+
+// reveal on scroll
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('in'); });
+}, {threshold:.12});
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
